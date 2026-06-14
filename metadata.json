@@ -1,0 +1,6 @@
+{
+  "name": "JEUX UNIVERSITAIRES DU BÉNIN (JUB)",
+  "description": "Dashboard officiel pour les Jeux Universitaires du Bénin (JUB) - Phase Zone 1, Discipline : Volley-ball. Suivi en temps réel des résultats, des classements et du joueur MVP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

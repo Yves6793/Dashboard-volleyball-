@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "Team": {
+      "title": "Team",
+      "description": "A participating team in the tournament",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "sexe": { "type": "string", "enum": ["H", "F"] },
+        "poule": { "type": "string" }
+      },
+      "required": ["id", "name", "sexe", "poule"]
+    },
+    "Match": {
+      "title": "Match",
+      "description": "A match between two teams",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "t1": { "type": "string" },
+        "t2": { "type": "string" },
+        "sexe": { "type": "string", "enum": ["H", "F"] },
+        "poule": { "type": "string" },
+        "type": { "type": "string", "enum": ["POULE", "QUARTER", "SEMI", "FINAL", "THIRD_PLACE"] },
+        "label": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "score": { "type": "string" },
+        "sets_detail": { "type": "string" },
+        "mvp": { "type": "string" },
+        "done": { "type": "boolean" },
+        "pg_t": { "type": "number" },
+        "pp_t": { "type": "number" },
+        "mvp_team": { "type": "string" },
+        "mvp_dossard": { "type": "string" }
+      },
+      "required": ["id", "t1", "t2", "sexe", "poule", "type", "done"]
+    },
+    "Presence": {
+      "title": "Presence",
+      "description": "User presence heartbeat session info",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "lastActive": { "type": "number" }
+      },
+      "required": ["id", "lastActive"]
+    }
+  },
+  "firestore": {
+    "/teams/{teamId}": {
+      "schema": "Team",
+      "description": "Collection of teams"
+    },
+    "/matches/{matchId}": {
+      "schema": "Match",
+      "description": "Collection of matches"
+    },
+    "/presence/{sessionId}": {
+      "schema": "Presence",
+      "description": "Collection of visitor/admin active presence sessions"
+    }
+  }
+}
